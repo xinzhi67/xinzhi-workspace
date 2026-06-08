@@ -1,0 +1,18 @@
+.textTitle {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.textBody {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.55;
+}
+
+.textMuted {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}

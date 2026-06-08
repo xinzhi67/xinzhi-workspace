@@ -1,0 +1,185 @@
+@keyframes badgeBubbleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.82) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes badgeDotAlive {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(255, 100, 80, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+  45% {
+    box-shadow:
+      0 0 0 8px rgba(255, 80, 60, 0),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+}
+
+.badgeAnchor {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  overflow: visible;
+}
+
+.badgeAnchorOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  transform: translate(28%, -22%);
+  line-height: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.badgeAnchorBubble {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  transform-origin: 70% 0%;
+  animation: badgeBubbleIn 0.4s cubic-bezier(0.33, 1.45, 0.48, 1) both;
+}
+
+.badgeAnchorBubble:not(.badgeAnchorArrowNone) {
+  padding-bottom: 0.32rem;
+}
+
+.badgeAnchorBubble:not(.badgeAnchorBubbleDot):not(.badgeAnchorArrowNone) {
+  filter: drop-shadow(0 3px 12px rgba(60, 6, 4, 0.42));
+}
+
+.badgeAnchorBubbleDot:not(.badgeAnchorArrowNone) {
+  filter: drop-shadow(0 2px 8px rgba(60, 6, 4, 0.36));
+}
+
+/* —— 小箭头：border 三角 + 底层略大深色三角作薄影（同为 border） —— */
+
+.badgeAnchorArrowBl::before,
+.badgeAnchorArrowBr::before {
+  content: "";
+  position: absolute;
+  bottom: 0.02rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 5px 0 5px;
+  border-color: rgba(0, 0, 0, 0.32) transparent transparent transparent;
+  z-index: 0;
+}
+
+.badgeAnchorArrowBl::after,
+.badgeAnchorArrowBr::after {
+  content: "";
+  position: absolute;
+  bottom: 0.14rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: var(--color-neural-dim) transparent transparent transparent;
+  z-index: 1;
+}
+
+.badgeAnchorArrowBl::before {
+  left: 22%;
+  margin-left: -5px;
+}
+
+.badgeAnchorArrowBl::after {
+  left: 22%;
+  margin-left: -4px;
+}
+
+.badgeAnchorArrowBr::before {
+  right: 22%;
+  left: auto;
+  margin-right: -5px;
+}
+
+.badgeAnchorArrowBr::after {
+  right: 22%;
+  left: auto;
+  margin-right: -4px;
+}
+
+/* 与 UiBadge data-tone 对齐的箭头色（取气泡底部主色） */
+.badgeAnchorArrowBl:has([data-tone="error"])::after,
+.badgeAnchorArrowBr:has([data-tone="error"])::after {
+  border-top-color: #8b1010;
+}
+
+.badgeAnchorArrowBl:has([data-tone="default"])::after,
+.badgeAnchorArrowBr:has([data-tone="default"])::after {
+  border-top-color: #e86b2a;
+}
+
+.badgeAnchorArrowBl:has([data-tone="success"])::after,
+.badgeAnchorArrowBr:has([data-tone="success"])::after {
+  border-top-color: #2a6b4d;
+}
+
+.badgeAnchorArrowBl:has([data-tone="warning"])::after,
+.badgeAnchorArrowBr:has([data-tone="warning"])::after {
+  border-top-color: #9a6a18;
+}
+
+.badgeAnchorArrowBl[data-bubble="dot"]::after,
+.badgeAnchorArrowBr[data-bubble="dot"]::after {
+  border-top-color: #8b1010;
+}
+
+.badgeAnchorArrowNone {
+  padding-bottom: 0;
+}
+
+.badgeAnchorBubbleDot.badgeAnchorArrowBl::before,
+.badgeAnchorBubbleDot.badgeAnchorArrowBr::before {
+  border-width: 5px 4px 0 4px;
+  bottom: 0.06rem;
+}
+
+.badgeAnchorBubbleDot.badgeAnchorArrowBl::after,
+.badgeAnchorBubbleDot.badgeAnchorArrowBr::after {
+  border-width: 4px 3px 0 3px;
+  bottom: 0.12rem;
+}
+
+.badgeAnchorBubbleDot.badgeAnchorArrowBl::before,
+.badgeAnchorBubbleDot.badgeAnchorArrowBl::after {
+  left: 50%;
+  margin-left: 0;
+  transform: translateX(-50%);
+}
+
+.badgeAnchorBubbleDot.badgeAnchorArrowBr::before,
+.badgeAnchorBubbleDot.badgeAnchorArrowBr::after {
+  right: 50%;
+  left: auto;
+  margin-right: 0;
+  transform: translateX(50%);
+}
+
+.badgeDot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background:
+    radial-gradient(80% 80% at 35% 25%, rgba(255, 220, 200, 0.55), transparent 55%),
+    linear-gradient(165deg, #ff6b52, #8b1010);
+  border: 2px solid var(--color-space);
+  animation: badgeDotAlive 2.5s ease-out infinite;
+}

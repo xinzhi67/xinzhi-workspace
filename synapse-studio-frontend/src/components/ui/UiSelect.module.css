@@ -1,0 +1,19 @@
+.select {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 245, 235, 0.14);
+  background: var(--color-space);
+  color: var(--color-text);
+}
+
+.select:focus {
+  border-color: var(--color-neural);
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(255, 143, 81, 0.35);
+}
+
+.select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

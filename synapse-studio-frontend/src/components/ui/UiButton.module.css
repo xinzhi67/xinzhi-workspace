@@ -1,0 +1,37 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.btnNonInteractive {
+  cursor: default;
+}
+
+.btnPrimary {
+  background: linear-gradient(
+    135deg,
+    var(--color-neural),
+    var(--color-neural-dim)
+  );
+  color: var(--color-on-orange);
+}
+
+.btnSecondary {
+  background: rgba(255, 180, 87, 0.14);
+  color: var(--color-data);
+  border: 1px solid var(--color-border);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid rgba(255, 245, 235, 0.14);
+}

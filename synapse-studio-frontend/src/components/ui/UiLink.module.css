@@ -1,0 +1,9 @@
+.link {
+  color: var(--color-neural);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  color: var(--color-data);
+}

@@ -1,0 +1,97 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  border-radius: var(--radius-md);
+  background: var(--color-space-elevated);
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-data);
+  font-weight: 600;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 88px;
+  resize: vertical;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(232, 238, 247, 0.12);
+  background: var(--color-space);
+  color: var(--color-text);
+}
+
+.log {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  max-height: 180px;
+  overflow: auto;
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+.previewWrap {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 143, 81, 0.08),
+    var(--color-space-elevated)
+  );
+  padding: 1.25rem;
+  min-height: 200px;
+}
+
+.jsonArea {
+  width: 100%;
+  min-height: 220px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(232, 238, 247, 0.12);
+  background: #120c08;
+  color: #e8d9cc;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tab {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+}
+
+.tabActive {
+  color: var(--color-neural);
+  border-color: var(--color-border);
+  background: rgba(255, 143, 81, 0.1);
+}

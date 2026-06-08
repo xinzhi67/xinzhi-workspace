@@ -1,0 +1,443 @@
+.section {
+  margin-bottom: 1.75rem;
+}
+
+.lead {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 0.85rem;
+}
+
+.lead code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  color: var(--color-neural);
+}
+
+.directGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.directBlock {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-space-elevated);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-data);
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.list code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  color: var(--color-neural);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-space-elevated);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-neural);
+}
+
+.notes {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.preview {
+  margin-top: 0.35rem;
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-space);
+  border: 1px solid rgba(232, 238, 247, 0.08);
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  margin-bottom: 2rem;
+}
+
+.gallerySection {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-space-elevated);
+}
+
+.galleryH3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-neural);
+}
+
+.galleryP {
+  margin: 0 0 0.85rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.demoCell {
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-space);
+  border: 1px solid rgba(255, 245, 235, 0.08);
+  font-size: 0.85rem;
+}
+
+.fieldBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+/** 布局预设：UiLayoutShell 单块预览区（与 .preview / gallery 同系底纹） */
+.layoutShellPreview {
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(232, 238, 247, 0.08);
+  background: var(--color-space);
+  min-height: 15rem;
+  box-sizing: border-box;
+}
+
+.layoutShellPreview > * {
+  min-height: 13rem;
+}
+
+.layoutVariantButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/** 布局预设演示：侧栏导航按钮拉满槽宽 */
+.layoutDemoNavBtn {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.layoutRelatedNote {
+  margin-top: 0.85rem;
+}
+
+.demoSectionLabel {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem 1rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.catalogItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  line-height: 1.45;
+}
+
+.catalogItem strong {
+  font-weight: 600;
+  color: var(--color-data);
+}
+
+.workbenchFallback {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* —— 组件库工作台：侧栏 + 主区 —— */
+.workbench {
+  display: flex;
+  gap: 0;
+  min-height: min(70vh, 720px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-space-elevated);
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.wbAside {
+  width: 220px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-space);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+}
+
+.wbAsideCollapsed {
+  width: 52px;
+}
+
+.wbAsideHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.wbCollapseBtn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-space-muted);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.wbCollapseBtn:hover {
+  color: var(--color-neural);
+}
+
+.wbAsideTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-data);
+}
+
+.wbNav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.35rem 0.35rem 0.75rem;
+}
+
+.wbNavGroup {
+  margin-bottom: 0.65rem;
+}
+
+.wbNavGroupLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.5rem 0.2rem;
+}
+
+.wbNavItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.45rem 0.55rem;
+  margin-bottom: 2px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.84rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.wbNavItem:hover {
+  background: var(--color-space-muted);
+  color: var(--color-text);
+}
+
+.wbNavItemActive {
+  background: rgba(255, 143, 81, 0.12);
+  color: var(--color-neural);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+}
+
+.wbAsideCollapsed .wbNavItem {
+  text-align: center;
+  padding: 0.45rem 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.wbMain {
+  flex: 1;
+  min-width: 0;
+  padding: 1.1rem 1.25rem 1.5rem;
+}
+
+.wbMainHeader {
+  margin-bottom: 1.25rem;
+}
+
+.wbMainTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.wbMainDesc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  max-width: 52rem;
+}
+
+.wbSection {
+  margin-bottom: 1.35rem;
+}
+
+.wbSectionTitle {
+  margin: 0 0 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-neural);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wbSectionHint {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.wbPlayground,
+.wbStates {
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-space);
+}
+
+.wbPlayground {
+  box-shadow: inset 0 0 0 1px rgba(255, 143, 81, 0.06);
+}
+
+.codeBlock {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  background: #120c08;
+}
+
+.codeToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.65rem;
+  border-bottom: 1px solid rgba(255, 245, 235, 0.08);
+  background: var(--color-space-muted);
+}
+
+.codeToolbarLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-data);
+  letter-spacing: 0.05em;
+}
+
+.codeCopyBtn {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-neural);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.codeCopyBtn:hover {
+  background: rgba(255, 143, 81, 0.1);
+}
+
+.codePre {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: #e8d9cc;
+}
+
+@media (max-width: 800px) {
+  .workbench {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .wbAside {
+    width: 100% !important;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    max-height: 200px;
+  }
+
+  .wbAsideCollapsed {
+    width: 100% !important;
+    max-height: 120px;
+  }
+
+  .wbMain {
+    max-height: none;
+  }
+}

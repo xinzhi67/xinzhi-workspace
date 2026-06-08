@@ -1,0 +1,77 @@
+{
+  "designSpecVersion": 1,
+  "meta": {
+    "title": "示例面板",
+    "description": "静态示例，用于验证 DesignRenderer 与编码智能体契约"
+  },
+  "tokens": {
+    "accent": "#FF6B35",
+    "muted": "#9fb0cc"
+  },
+  "root": {
+    "id": "root",
+    "type": "Stack",
+    "direction": "column",
+    "gap": 16,
+    "children": [
+      {
+        "id": "hero-title",
+        "type": "Text",
+        "content": "Synapse Studio",
+        "variant": "title"
+      },
+      {
+        "id": "hero-sub",
+        "type": "Text",
+        "content": "灵感枢纽 · 设计稿可由 JSON 机械还原",
+        "variant": "muted"
+      },
+      {
+        "id": "row",
+        "type": "Stack",
+        "direction": "row",
+        "gap": 12,
+        "children": [
+          {
+            "id": "card-a",
+            "type": "Card",
+            "title": "神经橙 CTA",
+            "children": [
+              {
+                "id": "t1",
+                "type": "Text",
+                "content": "主操作与强调色",
+                "variant": "body"
+              },
+              {
+                "id": "b1",
+                "type": "Button",
+                "label": "生成设计",
+                "variant": "primary"
+              }
+            ]
+          },
+          {
+            "id": "card-b",
+            "type": "Card",
+            "title": "数据紫状态",
+            "children": [
+              {
+                "id": "t2",
+                "type": "Text",
+                "content": "智能体与数据流",
+                "variant": "body"
+              },
+              {
+                "id": "b2",
+                "type": "Button",
+                "label": "查看 JSON",
+                "variant": "secondary"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
