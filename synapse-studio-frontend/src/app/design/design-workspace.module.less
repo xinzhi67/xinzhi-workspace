@@ -7,23 +7,27 @@
   gap: 20px;
   min-height: 100%;
 }
+
 /* ─── Header ─── */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .headerLeft {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
 }
+
 .status {
   font-size: 0.78rem;
   padding: 4px 10px;
@@ -31,6 +35,7 @@
   background: var(--color-space-muted);
   color: var(--color-text-muted);
 }
+
 /* ─── Project Cards ─── */
 .projects {
   display: flex;
@@ -38,16 +43,19 @@
   gap: 14px;
   flex: 1;
 }
+
 .projectRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
+
 @media (max-width: 800px) {
   .projectRow {
     grid-template-columns: 1fr;
   }
 }
+
 .projectCard {
   display: flex;
   flex-direction: column;
@@ -57,11 +65,13 @@
   background: #FFFFFF;
   border: 1px solid var(--color-border);
 }
+
 .projectTop {
   display: flex;
   align-items: flex-start;
   gap: 12px;
 }
+
 .projectIcon {
   width: 40px;
   height: 40px;
@@ -69,23 +79,27 @@
   background: var(--color-space-muted);
   flex-shrink: 0;
 }
+
 .projectName {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-text);
 }
+
 .projectDesc {
   margin: 4px 0 0;
   font-size: 0.8rem;
   color: var(--color-text-muted);
   line-height: 1.4;
 }
+
 .projectBottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .projectStatus {
   font-size: 0.72rem;
   padding: 3px 10px;
@@ -93,12 +107,14 @@
   background: var(--color-space-muted);
   color: var(--color-text-muted);
 }
+
 .projectAction {
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--color-neural);
   cursor: pointer;
 }
+
 /* ─── Prompt Bar ─── */
 .promptBar {
   display: flex;
@@ -110,6 +126,7 @@
   border-radius: 16px;
   background: #18181B;
 }
+
 .promptLeft {
   display: flex;
   align-items: center;
@@ -117,11 +134,13 @@
   flex: 1;
   min-width: 0;
 }
+
 .plusIcon {
   color: rgba(255, 255, 255, 0.4);
   font-size: 1.2rem;
   line-height: 1;
 }
+
 .promptInput {
   flex: 1;
   min-width: 0;
@@ -132,9 +151,11 @@
   outline: none;
   font-family: inherit;
 }
+
 .promptInput::placeholder {
   color: rgba(255, 255, 255, 0.35);
 }
+
 .sendBtn {
   display: flex;
   align-items: center;
@@ -147,19 +168,23 @@
   cursor: pointer;
   flex-shrink: 0;
 }
+
 .sendBtn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
 /* ─── Result Area ─── */
 .resultArea {
   margin-top: 4px;
 }
+
 .resultTabs {
   display: flex;
   gap: 4px;
   margin-bottom: 12px;
 }
+
 .resultTab {
   padding: 6px 14px;
   border-radius: 999px;
@@ -170,10 +195,12 @@
   cursor: pointer;
   font-family: inherit;
 }
+
 .resultTabActive {
   color: var(--color-neural);
   background: rgba(99, 91, 255, 0.06);
 }
+
 .previewWrap {
   border-radius: 14px;
   border: 1px solid var(--color-border);
@@ -181,6 +208,7 @@
   padding: 20px;
   min-height: 200px;
 }
+
 .jsonArea {
   width: 100%;
   min-height: 220px;
@@ -193,6 +221,7 @@
   color: var(--color-text);
   resize: vertical;
 }
+
 .applyBtn {
   margin-top: 8px;
   padding: 8px 16px;
@@ -204,18 +233,22 @@
   cursor: pointer;
   font-family: inherit;
 }
+
 .applyBtn:hover {
   background: var(--color-space-deep);
 }
+
 /* ─── Log ─── */
 .logDetails {
   margin-top: 8px;
 }
+
 .logSummary {
   font-size: 0.85rem;
   color: var(--color-text-muted);
   cursor: pointer;
 }
+
 .logPre {
   margin-top: 8px;
   padding: 12px;

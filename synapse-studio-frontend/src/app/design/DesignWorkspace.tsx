@@ -4,14 +4,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DesignRenderer } from "@/components/design-renderer/DesignRenderer";
 import { parseDesignSpec } from "@/design-spec/schema";
 import type { DesignSpec } from "@/design-spec/types";
-import { UiButton } from "@/components/ui";
 import {
   createSession,
   getAgentApiBase,
   sendUserMessage,
   subscribeAgentStream,
 } from "@/lib/agent/client";
-import section from "../page-section.module.css";
 import styles from "./design-workspace.module.css";
 
 type Tab = "preview" | "json";
@@ -57,7 +55,7 @@ export function DesignWorkspace() {
       const { id } = await createSession();
       appendLog(
         apiBase
-          ? `会话已创建：${id}，连接 ${apiBase}/sessions/.../stream`
+          ? `会话已创建：${id}`
           : `本地模式：会话 ${id}（未配置 NEXT_PUBLIC_AGENT_API_BASE）`,
       );
       if (apiBase) {
@@ -108,47 +106,142 @@ export function DesignWorkspace() {
   };
 
   return (
-    <>
-      <h1 className={section.title}>UI 设计稿生成</h1>
-      <p className={section.subtitle}>
-        输入一句话意图；右侧为 Design Spec 预览与 JSON。已配置后端基址时将使用
-        SSE 与重连策略；未配置时走本地 mock 流，事件形状与后端一致便于联调。
-      </p>
-      <div className={styles.layout}>
-        <div className={styles.panel}>
-          <span className={styles.label}>意图</span>
-          <textarea
-            className={styles.textarea}
-            value={intent}
-            onChange={(e) => setIntent(e.target.value)}
-            placeholder="描述你想要的界面…"
-          />
-          <UiButton disabled={busy} onClick={() => void run()}>
-            {busy ? "生成中…" : "生成设计稿"}
-          </UiButton>
-          <div>
-            <span className={styles.label}>阶段</span>
-            <p style={{ fontSize: "0.85rem", color: "var(--color-text-muted)" }}>
-              {phases.length ? phases.join(" → ") : "—"}
-            </p>
+    <div className={styles.wrapper}>
+      {/* Header */}
+      <div className={styles.header}>
+        <div className={styles.headerLeft}>
+          <h1 className={styles.title}>AI 创意工坊</h1>
+          <span className={styles.status}>
+            {busy ? "生成中..." : "就绪"}
+          </span>
+        </div>
+      </div>
+
+      {/* Project Cards */}
+      <div className={styles.projects}>
+        <div className={styles.projectRow}>
+          <div className={styles.projectCard}>
+            <div className={styles.projectTop}>
+              <div className={styles.projectIcon} />
+              <div>
+                <p className={styles.projectName}>UI 设计稿生成</p>
+                <p className={styles.projectDesc}>输入意图，自动生成设计 Spec</p>
+              </div>
+            </div>
+            <div className={styles.projectBottom}>
+              <span className={styles.projectStatus}>就绪</span>
+              <span className={styles.projectAction}>开始 →</span>
+            </div>
           </div>
-          <div>
-            <span className={styles.label}>日志</span>
-            <pre className={styles.log}>{log || "—"}</pre>
+          <div className={styles.projectCard}>
+            <div className={styles.projectTop}>
+              <div className={styles.projectIcon} />
+              <div>
+                <p className={styles.projectName}>智能对话助手</p>
+                <p className={styles.projectDesc}>自然语言交互与问答</p>
+              </div>
+            </div>
+            <div className={styles.projectBottom}>
+              <span className={styles.projectStatus}>规划中</span>
+              <span className={styles.projectAction}>查看 →</span>
+            </div>
+          </div>
+          <div className={styles.projectCard}>
+            <div className={styles.projectTop}>
+              <div className={styles.projectIcon} />
+              <div>
+                <p className={styles.projectName}>AI 音乐创作</p>
+                <p className={styles.projectDesc}>根据描述生成背景配乐</p>
+              </div>
+            </div>
+            <div className={styles.projectBottom}>
+              <span className={styles.projectStatus}>规划中</span>
+              <span className={styles.projectAction}>查看 →</span>
+            </div>
           </div>
         </div>
-        <div className={styles.panel}>
-          <div className={styles.tabs}>
+        <div className={styles.projectRow}>
+          <div className={styles.projectCard}>
+            <div className={styles.projectTop}>
+              <div className={styles.projectIcon} />
+              <div>
+                <p className={styles.projectName}>文案生成器</p>
+                <p className={styles.projectDesc}>批量生成产品文案与描述</p>
+              </div>
+            </div>
+            <div className={styles.projectBottom}>
+              <span className={styles.projectStatus}>规划中</span>
+              <span className={styles.projectAction}>查看 →</span>
+            </div>
+          </div>
+          <div className={styles.projectCard}>
+            <div className={styles.projectTop}>
+              <div className={styles.projectIcon} />
+              <div>
+                <p className={styles.projectName}>风格迁移</p>
+                <p className={styles.projectDesc}>将设计稿转换为不同风格</p>
+              </div>
+            </div>
+            <div className={styles.projectBottom}>
+              <span className={styles.projectStatus}>规划中</span>
+              <span className={styles.projectAction}>查看 →</span>
+            </div>
+          </div>
+          <div className={styles.projectCard}>
+            <div className={styles.projectTop}>
+              <div className={styles.projectIcon} />
+              <div>
+                <p className={styles.projectName}>智能检索</p>
+                <p className={styles.projectDesc}>语义搜索组件与设计稿</p>
+              </div>
+            </div>
+            <div className={styles.projectBottom}>
+              <span className={styles.projectStatus}>规划中</span>
+              <span className={styles.projectAction}>查看 →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Prompt Bar */}
+      <div className={styles.promptBar}>
+        <div className={styles.promptLeft}>
+          <span className={styles.plusIcon}>+</span>
+          <input
+            className={styles.promptInput}
+            value={intent}
+            onChange={(e) => setIntent(e.target.value)}
+            placeholder="描述你想要的界面..."
+            onKeyDown={(e) => {
+              if (e.key === "Enter") void run();
+            }}
+          />
+        </div>
+        <button
+          className={styles.sendBtn}
+          onClick={() => void run()}
+          disabled={busy}
+          aria-label="生成设计稿"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5" />
+            <polyline points="5 12 12 5 19 12" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Log & Preview (collapsible) */}
+      {spec ? (
+        <div className={styles.resultArea}>
+          <div className={styles.resultTabs}>
             <button
-              type="button"
-              className={`${styles.tab} ${tab === "preview" ? styles.tabActive : ""}`}
+              className={`${styles.resultTab} ${tab === "preview" ? styles.resultTabActive : ""}`}
               onClick={() => setTab("preview")}
             >
               预览
             </button>
             <button
-              type="button"
-              className={`${styles.tab} ${tab === "json" ? styles.tabActive : ""}`}
+              className={`${styles.resultTab} ${tab === "json" ? styles.resultTabActive : ""}`}
               onClick={() => setTab("json")}
             >
               JSON
@@ -156,27 +249,30 @@ export function DesignWorkspace() {
           </div>
           {tab === "preview" ? (
             <div className={styles.previewWrap}>
-              {spec ? (
-                <DesignRenderer node={spec.root} />
-              ) : (
-                <p style={{ color: "var(--color-text-muted)", fontSize: "0.9rem" }}>
-                  尚无 spec。点击「生成设计稿」或切换到 JSON 粘贴后应用。
-                </p>
-              )}
+              <DesignRenderer node={spec.root} />
             </div>
           ) : (
-            <>
+            <div>
               <textarea
                 className={styles.jsonArea}
                 value={jsonText}
                 onChange={(e) => setJsonText(e.target.value)}
                 spellCheck={false}
               />
-              <UiButton onClick={applyJson}>校验并应用到预览</UiButton>
-            </>
+              <button className={styles.applyBtn} onClick={applyJson}>
+                校验并应用
+              </button>
+            </div>
           )}
         </div>
-      </div>
-    </>
+      ) : null}
+
+      {log ? (
+        <details className={styles.logDetails}>
+          <summary className={styles.logSummary}>日志</summary>
+          <pre className={styles.logPre}>{log}</pre>
+        </details>
+      ) : null}
+    </div>
   );
 }
