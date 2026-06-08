@@ -56,6 +56,12 @@ DB_NAME=synapse_studio
 
 ### 3. 启动服务
 
+**方式一：一键启动（推荐）**
+
+双击根目录的 `start.bat`，自动打开两个终端分别启动前后端。
+
+**方式二：手动启动**
+
 ```bash
 # 后端（先启动，端口 5000）
 cd synapse-studio-serve
