@@ -25,13 +25,8 @@ xinzhi-workspace/
 ### 1. 安装依赖
 
 ```bash
-# 前端
-cd synapse-studio-frontend
-npm install
-
-# 后端
-cd ../synapse-studio-serve
-npm install
+npm install           # 根目录（concurrently）
+npm run install:all   # 前后端依赖
 ```
 
 ### 2. 配置环境变量
@@ -56,20 +51,18 @@ DB_NAME=synapse_studio
 
 ### 3. 启动服务
 
-**方式一：一键启动（推荐）**
+```bash
+# 在根目录下一键启动前后端
+npm run dev
+```
 
-双击根目录的 `start.bat`，自动打开两个终端分别启动前后端。
+后端 `http://localhost:5000`，前端 `http://localhost:3000`。
 
-**方式二：手动启动**
+如需单独启动某一个：
 
 ```bash
-# 后端（先启动，端口 5000）
-cd synapse-studio-serve
-npm run start:dev
-
-# 前端（新终端，端口 3000）
-cd synapse-studio-frontend
-npm run dev
+npm run dev:serve     # 仅后端
+npm run dev:frontend  # 仅前端
 ```
 
 ### 4. 访问

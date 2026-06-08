@@ -1,0 +1,14 @@
+{
+  "name": "xinzhi-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n serve,frontend -c blue,green \"npm run dev:serve\" \"npm run dev:frontend\"",
+    "dev:serve": "cd synapse-studio-serve && npm run start:dev",
+    "dev:frontend": "cd synapse-studio-frontend && npm run dev",
+    "install:all": "cd synapse-studio-serve && npm install && cd ../synapse-studio-frontend && npm install",
+    "build": "cd synapse-studio-serve && npm run build && cd ../synapse-studio-frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
