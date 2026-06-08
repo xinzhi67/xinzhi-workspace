@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "predev": "node scripts/build-less.mjs",
+    "prebuild": "node scripts/build-less.mjs",
+    "less": "node scripts/build-less.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -25,6 +28,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "less": "^4.6.4",
     "typescript": "^5"
   }
 }
