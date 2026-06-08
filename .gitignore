@@ -12,3 +12,7 @@ Thumbs.db
 
 # Dependencies
 node_modules/
+
+# System artifacts
+.agents/
+skills-lock.json
