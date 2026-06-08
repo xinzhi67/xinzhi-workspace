@@ -39,22 +39,15 @@ export default function PlayCanvas() {
   }, []);
 
   return (
-    <div
-      style={{
-        height: 480,
-        borderRadius: "var(--radius-md)",
-        overflow: "hidden",
-        border: "1px solid var(--color-border)",
-        boxShadow: "var(--shadow-glow)",
-      }}
-    >
+    <div style={{ width: "100%", height: "100%" }}>
       <Canvas
+        style={{ width: "100%", height: "100%" }}
         camera={{ position: [3, 1.8, 5], fov: 45 }}
         dpr={[1, 1.75]}
         frameloop="always"
         gl={{ antialias: true, alpha: false }}
         onCreated={({ gl }) => {
-          gl.setClearColor("#1a120c");
+          gl.setClearColor("#F1F1F5");
         }}
       >
         <ambientLight intensity={0.45} />
@@ -63,7 +56,7 @@ export default function PlayCanvas() {
           fallback={
             <mesh>
               <boxGeometry args={[0.4, 0.4, 0.4]} />
-              <meshStandardMaterial color="#ff8f51" />
+              <meshStandardMaterial color="#635BFF" />
             </mesh>
           }
         >

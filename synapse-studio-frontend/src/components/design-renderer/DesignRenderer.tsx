@@ -10,7 +10,7 @@ function renderNode(node: DesignNode): ReactNode {
         style={{
           padding: "0.75rem",
           borderRadius: "var(--radius-sm)",
-          background: "rgba(255, 143, 81, 0.14)",
+          background: "rgba(99, 91, 255, 0.08)",
           color: "var(--color-neural)",
           fontSize: "0.85rem",
         }}
