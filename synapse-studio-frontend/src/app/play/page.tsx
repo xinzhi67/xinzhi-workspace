@@ -2,6 +2,8 @@
 
 import { Suspense, useCallback, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./play.module.css";
@@ -125,7 +127,15 @@ export default function PlayPage() {
               <span>加载场景中...</span>
             </div>
           }>
-            <ActiveScene />
+            <Canvas
+              camera={{ position: [3, 2, 5], fov: 45 }}
+              dpr={[1, 1.75]}
+              gl={{ antialias: true, alpha: false }}
+              onCreated={({ gl }) => { gl.setClearColor("#0F0F14"); }}
+            >
+              <ActiveScene />
+              <OrbitControls makeDefault enableDamping dampingFactor={0.06} />
+            </Canvas>
           </Suspense>
         </div>
         <div className={styles.viewportOverlay}>
